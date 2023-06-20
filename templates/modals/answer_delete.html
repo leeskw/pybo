@@ -1,0 +1,34 @@
+<div
+  class="modal fade"
+  id="answerModal"
+  tabindex="-1"
+  aria-labelledby="answerModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="answerModalLabel">답변 삭제 확인</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <p class="mb-3">정말로 삭제하시겠습니까?"</p>
+        <form
+          action="{% url 'pybo:answer_delete' answer.id %}"
+          method="post"
+        >
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">확인</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+            취소
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
